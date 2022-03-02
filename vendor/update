@@ -1,0 +1,4 @@
+#!/bin/bash
+cd $(git rev-parse --show-toplevel)
+git subtree pull --prefix vendor/cybozulib https://github.com/herumi/cybozulib.git master
+git subtree pull --prefix vendor/msoffice  https://github.com/herumi/msoffice.git  master

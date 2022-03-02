@@ -20,8 +20,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To encrypt, you can either pass in a file or binary data:
+```ruby
+require "ooxml_crypt"
 
+# pass in binary data, get binary data
+encrypted_data = OoxmlCrypt.encrypt(bindata, password)
+
+# or use file names
+OoxmlCrypt.encrypt_file(filename, password, encrypted_filename)
+```
+
+The same approach holds true for decryption:
+```ruby
+require "ooxml_crypt"
+
+# pass in binary data, get binary data
+decrypted_data = OoxmlCrypt.decrypt(bindata, password)
+
+# or use file names
+OoxmlCrypt.decrypt_file(filename, password, decrypted_filename)
+```
+
+An exception `OoxmlCrypt::Error` will be raised in case of errors.
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -11,6 +11,7 @@ abort("Please install OpenSSL development libraries!") unless have_header("opens
 # setup build configuration
 vendor = File.realpath(File.join(__dir__, "..", "..", "vendor"))
 $INCFLAGS << " -I#{vendor}/cybozulib/include -I#{vendor}/msoffice/include"
+$defs << "-DCYBOZU_USE_OPENSSL_NEW_HASH=0" # fix compatibility with old OpenSSL versions
 $VPATH << "#{vendor}/msoffice/src"
 $srcs = ["ooxml_crypt.c", "msocdll.cpp"]
 

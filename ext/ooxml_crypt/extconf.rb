@@ -6,7 +6,8 @@ require "mkmf"
 have_library("stdc++")
 
 # check for OpenSSL
-abort("Please install OpenSSL development libraries!") unless have_header("openssl/hmac.h") && have_library("crypto")
+openssl_present = pkg_config("openssl") || (have_header("openssl/hmac.h") && have_library("crypto"))
+abort("Please install OpenSSL development libraries!") unless openssl_present
 
 # setup build configuration
 vendor = File.realpath(File.join(__dir__, "..", "..", "vendor"))

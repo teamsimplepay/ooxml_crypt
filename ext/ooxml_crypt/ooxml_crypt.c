@@ -18,9 +18,10 @@ VALUE rb_decrypt_file(VALUE self, VALUE inFile, VALUE password, VALUE outFile)
   return INT2FIX(MSOC_decryptA(out, in, pass, NULL));
 }
 
-void Init_ooxml_crypt(void)
+void Init_native(void)
 {
-  VALUE mod = rb_define_module("OoxmlCryptNative");
+  VALUE parent = rb_define_module("OoxmlCrypt");
+  VALUE mod = rb_define_module_under(parent, "Native");
 
   rb_define_module_function(mod, "encrypt_file", rb_encrypt_file, 3);
   rb_define_module_function(mod, "decrypt_file", rb_decrypt_file, 3);

@@ -16,4 +16,4 @@ $VPATH << "#{vendor}/msoffice/src"
 $srcs = ["ooxml_crypt.c", "msocdll.cpp"]
 
 # create makefile
-create_makefile("ooxml_crypt/ooxml_crypt")
+create_makefile("ooxml_crypt/native")

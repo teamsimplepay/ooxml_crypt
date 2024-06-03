@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require_relative "ooxml_crypt/version"
-require_relative "ooxml_crypt/ooxml_crypt"
 
 require "tempfile"
+require "ooxml_crypt/native"
 
 module OoxmlCrypt
   class Error < StandardError; end
@@ -29,7 +29,7 @@ module OoxmlCrypt
     raise EmptyPassword if password.nil? || password.empty?
     raise FileNotFound, input unless File.exist?(input)
 
-    result = OoxmlCryptNative.encrypt_file(input, password, output)
+    result = Native.encrypt_file(input, password, output)
     raise Error, ERRORS[-result] if result != 0
   end
 
@@ -37,7 +37,7 @@ module OoxmlCrypt
     raise EmptyPassword if password.nil? || password.empty?
     raise FileNotFound, input unless File.exist?(input)
 
-    result = OoxmlCryptNative.decrypt_file(input, password, output)
+    result = Native.decrypt_file(input, password, output)
     raise Error, ERRORS[-result] if result != 0
   end
 

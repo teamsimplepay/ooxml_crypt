@@ -56,6 +56,7 @@ module OoxmlCrypt
   private
 
   def self.with_temp_files(data)
+    input = output = nil
     input = Tempfile.new("ooxml_crypt_input", binmode: true)
     input.write(data)
     input.close
@@ -65,11 +66,9 @@ module OoxmlCrypt
 
     yield input.path, output.path
 
-    result = File.binread(output.path)
-
-    input.unlink
-    output.unlink
-
-    result
+    File.binread(output.path)
+  ensure
+    input&.unlink
+    output&.unlink
   end
 end

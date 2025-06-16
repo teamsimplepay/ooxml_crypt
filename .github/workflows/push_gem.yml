@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/checkout@cbb722410c2e876e24abbe8de2cc27693e501dcb # v4.2.2
 
-      - uses: ruby/setup-ruby@c95ae3725f6ebdd095f2bd19caed7ebc14435ba5 # v1.243.0
+      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
         with:
           bundler-cache: true
           ruby-version: '3.4'

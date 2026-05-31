@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.extensions = ["ext/ooxml_crypt/extconf.rb"]
 
-  spec.add_development_dependency "bundler", "~> 2.2"
+  spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rake-compiler", "~> 1.1"
 
